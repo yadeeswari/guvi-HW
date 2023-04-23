@@ -12,25 +12,37 @@
             function handleData(){
                let data=JSON.parse(this.responseText)
 
-               for(let i=0; i<data.length;i++)
+             /*  for(let i=0; i<data.length;i++)
                {
                 console.log(data[i].name.common,data[i].population);
-               }
+               }*/
                 
                for (e of data)
                {
-                console.log(e.name.common,e.name.population );
+                console.log(e.name.common,e
+            .population );
                }
-               for (i in data)
+              
+              /* for (i in data)
                {
                 console.log(data[i].name.common)
                }
                data.forEach(element => {
                 console.log(element.name.common);
                });
+            */
+              
+              //let country = data.map((e) =>`${e.name.common} - ${e.population}`)
+              //console.log(country);
+
+             /* let country = data.filter((e)=> {
+                if(e.continents[0]=="North America")
+                return true
+                else
+                return false
+              })
+              console.log(country)*/
             }
-
-
             const req = new XMLHttpRequest();
              req.addEventListener('load',handleData)
             req.onload = (res)=>{

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guvi JS Day 3</title>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <h2>This is an example for XML HTTP Request</h2>
+        <script>
+                        const req = new XMLHttpRequest();
+             req.addEventListener('load',yadees)
+            req.onload = (res)=>{
+               // console.log(JSON.parse(res.srcElement.responseText))
+            }
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+            console.log("Welcome to HTML JS")
+
+            function yadees(){
+                console.log(JSON.parse(this.responseText))
+                var data = JSON.parse(this.responseText);
+                data.forEach(element => {
+                    console.log(element.flags.png);
+                });
+            }
+
+
+        </script>
+    </body>
+</html>
