@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const Xhr = new XMLHttpRequest();
+        Xhr.open ('GET', 'https://restcountries.com/v3.1/all');
+        Xhr.onload = function() {
+            let data = JSON.parse(Xhr.response);
+            let asiancountry =[];
+             
+           
+           
+             function region (value) {
+                if (value.region == "Asia") {
+                    return true;
+                }
+               else {
+                return false;
+               }
+            } 
+
+            asianCountry = data.filter(region);
+            for(let index=0; index<asianCountry.length; index++){
+                console.log(asianCountry[index].name.common);
+            }
+
+        }
+        Xhr.send();
+    </script>
+</body>
+</html>

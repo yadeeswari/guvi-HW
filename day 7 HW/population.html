@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const Xhr = new XMLHttpRequest();
+        Xhr.open ('GET', 'https://restcountries.com/v3.1/all');
+        Xhr.onload = function() {
+            let data = JSON.parse(Xhr.response);
+
+            let elements =[];
+             
+            elements = data.filter(population);
+            for(let index=0; index < elements.length; index++){
+                console.log(`${elements[index].name.common} : ${elements[index].population}`);
+            }
+           
+             function population (value) {
+                if (value.population < 200000) {
+                    return true;
+                }
+               else {
+                return false;
+               }
+            } 
+
+           
+
+        }
+        Xhr.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+const Xhr = new XMLHttpRequest();
+Xhr.open ('GET', "https://restcountries.com/v3.1/all");
+Xhr.onload = function() {
+    //let data = JSON.parse(Xhr.response);
+     console.log("success");
+     Xhr.send();
+
+//console.log("welcome");
